@@ -1,4 +1,4 @@
-namespace Example.Tests.Interop;
+namespace Example.Tests.WasiHost;
 
 public class Program
 {
