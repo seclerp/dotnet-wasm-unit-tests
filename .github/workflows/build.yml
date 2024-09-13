@@ -22,8 +22,17 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 8.0.x
+    - name: 🏗 Restore workloads
+      run: dotnet workload restore
     - name: 🏗 Restore dependencies
       run: dotnet restore
+    - name: 🏗 Install WASI SDK
+      run: |
+        export WASI_VERSION=24
+        export WASI_VERSION_FULL=${WASI_VERSION}.0
+        wget https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-${WASI_VERSION}/wasi-sdk-${WASI_VERSION_FULL}-linux.tar.gz
+        tar xvf wasi-sdk-${WASI_VERSION_FULL}-linux.tar.gz
+        export WASI_SDK_PATH=`pwd`/wasi-sdk-${WASI_VERSION_FULL}
     - name: 🏗 Build
       run: dotnet build --no-restore
     - name: 📝 Test

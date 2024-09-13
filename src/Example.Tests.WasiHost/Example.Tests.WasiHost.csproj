@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RuntimeIdentifier>wasi-wasm</RuntimeIdentifier>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Extism.Pdk" Version="1.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Example.Library\Example.Library.csproj" />
+    <ProjectReference Include="..\Example.Tests.Shared\Example.Tests.Shared.csproj" />
+  </ItemGroup>
+</Project>
